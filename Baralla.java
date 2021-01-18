@@ -47,20 +47,20 @@ public class Baralla {
     }
 
     /**
-     * Método que devolve a seguite carta. Inicializamos o contador a 0, e
-     * cada vez que chamamos a este método, actaulízase o contador en +1 e
-     * devolve o valor da carta.
+     * Método que devolve a seguite carta. Inicializamos o contador a 0, e cada vez
+     * que chamamos a este método, actaulízase o contador en +1 e devolve o valor da
+     * carta.
      * 
-     * @return c - Devolve a Carta, se é a última devólvea como null xa que 
-     * significa que non quedan cartas. Sairá un aviso indicando que non hai 
-     * máis cartas.
+     * @return c - Devolve a Carta, se é a última devólvea como null xa que
+     *         significa que non quedan cartas. Sairá un aviso indicando que non hai
+     *         máis cartas.
      */
-    public Carta siguienteCarta() {
-        Carta c = null;
+    public String siguienteCarta() {
+        String c = null;
         if (this.contador == MAX_CARTAS) {
-            System.out.println("Non quedan cartas.") 
+            c = "Non quedan cartas";
         } else {
-            c = BarallaCartas[contador++];
+            c = BarallaCartas[contador++].toString();
         }
         return c;
 
@@ -84,9 +84,10 @@ public class Baralla {
      * @param n É o número de cartas que imos a retirar. Tamén será o número que
      *          teremos que actualizar no contador para que non nos conte esas
      *          cartas.
-     * @return Devolve o número de cartas que
+     * @return Devolve o número de cartas que quedan na baralla.
      */
     public int darCarta(int n) {
+        contador += n;
         return cartasDisponibles() - n;
     }
 }
