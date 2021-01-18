@@ -35,12 +35,16 @@ public class Baralla {
     }
 
     /**
-     * Método que lista todas as cartas. Recorre todo o
+     * Método que lista todas as cartas. Recorre toda a  baralla e imprimindo
+     * por pantalla o número da carta e o pau. 
+     * 
+     * !Este método é so para ver se sae correcta a información.
      */
     public void mostrarBaralla() {
         for (int i = 0; i < BarallaCartas.length; i++) {
             System.out.println(BarallaCartas[i].toString());
         }
     }
+    
 
 }
