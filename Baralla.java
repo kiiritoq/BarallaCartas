@@ -2,6 +2,8 @@ public class Baralla {
     public Carta BarallaCartas[];
     private static final int MAX_BARALLA = 40;
     private static final String Palos[] = { "OUROS", "BASTOS", "COPAS", "ESPADAS" };
+    private int contador = 0;
+    private final int MAX_CARTAS = 40;
 
     /* Constructor */
     /**
@@ -35,10 +37,15 @@ public class Baralla {
     }
 
     /**
+<<<<<<< HEAD
      * Método que lista todas as cartas. Recorre toda a  baralla e imprimindo
      * por pantalla o número da carta e o pau. 
      * 
      * !Este método é so para ver se sae correcta a información.
+=======
+     * Método que lista todas as cartas. Recorre toda a baralla de cartas. Este
+     * método é so para ver a saída da baralla por pantalla.
+>>>>>>> b7dd4de206ef69de2b8864837335a02664f865dc
      */
     public void mostrarBaralla() {
         for (int i = 0; i < BarallaCartas.length; i++) {
@@ -47,4 +54,48 @@ public class Baralla {
     }
     
 
+    /**
+     * Método que devolve a seguite carta. Inicializamos o contador a 0, e cada vez
+     * que chamamos a este método, actaulízase o contador en +1 e devolve o valor da
+     * carta.
+     * 
+     * @return c - Devolve a Carta, se é a última devólvea como null xa que
+     *         significa que non quedan cartas. Sairá un aviso indicando que non hai
+     *         máis cartas.
+     */
+    public String siguienteCarta() {
+        String c = null;
+        if (this.contador == MAX_CARTAS) {
+            c = "Non quedan cartas";
+        } else {
+            c = BarallaCartas[contador++].toString();
+        }
+        return c;
+
+    }
+
+    /**
+     * Método que devolve cantas cartas quedan por repartir. Para iso, o que facemos
+     * é: coller as cartas totáis que hai (40) menos as que xa saíron. O contador
+     * actualízase cada vez que chamamos ao método "siguienteCarta", polo tanto así
+     * teremos o número de cartas restantes.
+     * 
+     * @return Devolve un número enteiro.
+     */
+    public int cartasDisponibles() {
+        return MAX_CARTAS - contador;
+    }
+
+    /**
+     * Método que retira n cartas da baralla.
+     * 
+     * @param n É o número de cartas que imos a retirar. Tamén será o número que
+     *          teremos que actualizar no contador para que non nos conte esas
+     *          cartas.
+     * @return Devolve o número de cartas que quedan na baralla.
+     */
+    public int darCarta(int n) {
+        contador += n;
+        return cartasDisponibles() - n;
+    }
 }
