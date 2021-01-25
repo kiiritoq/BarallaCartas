@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class Baralla {
     public Carta BarallaCartas[];
     private static final int MAX_BARALLA = 40;
@@ -89,5 +91,18 @@ public class Baralla {
     public int darCarta(int n) {
         contador += n;
         return cartasDisponibles() - n;
+    }
+
+    /**
+     * Método que baralla as cartas,
+     */
+    public void barallar() {
+        Carta c;
+        for (int i = 0; i < MAX_BARALLA; i++) {
+            c = BarallaCartas[i];
+            BarallaCartas[i] = BarallaCartas[iNumRand];
+            iNumRand = 0;
+        }
+
     }
 }
