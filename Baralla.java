@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Baralla {
     public Carta BarallaCartas[];
     private static final int MAX_BARALLA = 40;
@@ -96,14 +98,27 @@ public class Baralla {
     }
 
     /**
-     * Método que baralla as cartas,
+     * Método que baralla as cartas. A este método temos que pasarlle un array de
+     * Cartas (BarallaCartas). Xeramos un Obxeto rdm para xerar un número random
+     * dende 0 (incluido) ata o array.length (excluído).
      */
-    public void barallar() {
-        Carta c;
-        for (int i = 0; i < MAX_BARALLA; i++) {
-            c = BarallaCartas[i];
-            BarallaCartas[i] = BarallaCartas[iNumRand];
-            iNumRand = 0;
+    public void barallar(Carta[] array) {
+        Random rdm = new Random();
+        int b[] = new int[array.length];
+
+        int iNumRand = rdm.nextInt(array.length);
+        for (int a = 0; a < array.length; a++) {
+            if (b[a] == iNumRand) {
+                a--;
+            } else {
+                b[a] = iNumRand;
+            }
+        }
+
+        for (int i = 0; i < b.length; i++) {
+
+            Carta tempCarta = array[b[i]];
+            array[i] = tempCarta;
         }
 
     }
