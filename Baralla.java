@@ -103,22 +103,13 @@ public class Baralla {
      * dende 0 (incluido) ata o array.length (excluído).
      */
     public void barallar(Carta[] array) {
-        Random rdm = new Random();
-        int b[] = new int[array.length];
+        Random rd = new Random();
 
-        int iNumRand = rdm.nextInt(array.length);
-        for (int a = 0; a < array.length; a++) {
-            if (b[a] == iNumRand) {
-                a--;
-            } else {
-                b[a] = iNumRand;
-            }
-        }
-
-        for (int i = 0; i < b.length; i++) {
-
-            Carta tempCarta = array[b[i]];
-            array[i] = tempCarta;
+        for (int i = 0; i < array.length; i++) {
+            int nummRad = rd.nextInt(array.length - i);
+            Carta cTemp = array[nummRad];
+            array[nummRad] = array[array.length - i - 1];
+            array[array.length - i - 1] = cTemp;
         }
 
     }

@@ -28,7 +28,6 @@ public class Carta {
     }
 
     @Override
-
     public String toString() {
         return "numero=" + iNum + ", palo=" + sPalo;
     }
