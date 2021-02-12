@@ -1,3 +1,9 @@
+
+/**
+ * @version 1.0
+ * @author kirito - The Shadow Programmer
+ */
+
 import java.util.Random;
 
 public class Baralla {
@@ -101,6 +107,9 @@ public class Baralla {
      * Método que baralla as cartas. A este método temos que pasarlle un array de
      * Cartas (BarallaCartas). Xeramos un Obxeto rdm para xerar un número random
      * dende 0 (incluido) ata o array.length (excluído).
+     * 
+     * Utilizamos un algoritmo para "barallar" o array: O que facemos é escoller un
+     * número aleatorio entre todo o array, excepto o último número,
      */
     public void barallar(Carta[] array) {
         Random rd = new Random();
