@@ -1,7 +1,13 @@
+
+/**
+ * @version 1.2
+ * @author kirito - The Shadow Programmer
+ */
+
 import java.util.Random;
 
-public class Baralla {
-    public Carta BarallaCartas[];
+abstract class Baralla {
+    private Carta BarallaCartas[];
     private static final int MAX_BARALLA = 40;
     private static final String Palos[] = { "OUROS", "BASTOS", "COPAS", "ESPADAS" };
     private int contador = 0;
@@ -14,7 +20,7 @@ public class Baralla {
      * utilizamos o método constructor, o que fai é xerar un listado de Cartas con
      * un máximo que nos lle pasemos.
      */
-    public Baralla() {
+    protected Baralla() {
         this.BarallaCartas = new Carta[MAX_BARALLA];
     }
 
@@ -26,7 +32,7 @@ public class Baralla {
      * cartas. O 10,11 e 12 son a Sota, Cabalo e Rei.
      */
 
-    public void crearBaralla() {
+    protected void crearBaralla() {
         for (int a = 0; a < Palos.length; a++) {
             for (int b = 0; b < 10; b++) {
                 if (b >= 7) {
@@ -46,7 +52,7 @@ public class Baralla {
      * lista todas as cartas. Recorre toda a baralla de cartas. Este método é so
      * para ver a saída da baralla por pantalla.
      */
-    public void mostrarBaralla() {
+    protected void mostrarBaralla() {
         for (int i = 0; i < BarallaCartas.length; i++) {
             System.out.println(BarallaCartas[i].toString());
         }
@@ -61,7 +67,7 @@ public class Baralla {
      *         significa que non quedan cartas. Sairá un aviso indicando que non hai
      *         máis cartas.
      */
-    public String siguienteCarta() {
+    protected String siguienteCarta() {
         String c = null;
         if (this.contador == MAX_CARTAS) {
             c = "Non quedan cartas";
@@ -80,7 +86,7 @@ public class Baralla {
      * 
      * @return Devolve un número enteiro.
      */
-    public int cartasDisponibles() {
+    protected int cartasDisponibles() {
         return MAX_CARTAS - contador;
     }
 
@@ -92,7 +98,7 @@ public class Baralla {
      *          cartas.
      * @return Devolve o número de cartas que quedan na baralla.
      */
-    public int darCarta(int n) {
+    protected int darCarta(int n) {
         contador += n;
         return cartasDisponibles() - n;
     }
@@ -102,7 +108,7 @@ public class Baralla {
      * Cartas (BarallaCartas). Xeramos un Obxeto rdm para xerar un número random
      * dende 0 (incluido) ata o array.length (excluído).
      */
-    public void barallar(Carta[] array) {
+    protected void barallar(Carta[] array) {
         Random rd = new Random();
 
         for (int i = 0; i < array.length; i++) {

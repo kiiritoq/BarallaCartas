@@ -7,7 +7,7 @@ public class main {
          * b.mostrarBaralla(); System.out.println(b.cartasDisponibles()); b.darCarta(5);
          * System.out.println(b.cartasDisponibles());
          */
-        b.barallar(b.BarallaCartas);
+        b.barallar(b.BarallaCartas());
         b.mostrarBaralla();
 
     }
