@@ -7,11 +7,10 @@
 import java.util.Random;
 
 abstract class Baralla {
-    private Carta BarallaCartas[];
+    protected Carta BarallaCartas[];
     private static final int MAX_BARALLA = 40;
-    private static final String Palos[] = { "OUROS", "BASTOS", "COPAS", "ESPADAS" };
+    private static final String PalosFRA[] = { "DIAMANTES", "PICAS", "CORAZONES", "TREBOLES" };
     private int contador = 0;
-    private final int MAX_CARTAS = 40;
 
     /* Constructor */
     /**
@@ -25,24 +24,6 @@ abstract class Baralla {
     }
 
     /* Metodos */
-    /**
-     * Método que crea a baralla ordenada. Por cada pau, xera 10 cartas, do 1 ao 10.
-     * Ten un condicional dentro que evalúa a entrada para os número maiores ca 7.
-     * Procede a sumar +3 ao número seguinte, dandolle os valores reais que teñen as
-     * cartas. O 10,11 e 12 son a Sota, Cabalo e Rei.
-     */
-
-    protected void crearBaralla() {
-        for (int a = 0; a < Palos.length; a++) {
-            for (int b = 0; b < 10; b++) {
-                if (b >= 7) {
-                    BarallaCartas[(10 * a) + b] = new Carta(b + 3, Palos[a]);
-                } else {
-                    BarallaCartas[(10 * a) + b] = new Carta(b + 1, Palos[a]);
-                }
-            }
-        }
-    }
 
     /**
      * Método que lista todas as cartas. Recorre toda a baralla e imprimindo por
@@ -52,7 +33,7 @@ abstract class Baralla {
      * lista todas as cartas. Recorre toda a baralla de cartas. Este método é so
      * para ver a saída da baralla por pantalla.
      */
-    protected void mostrarBaralla() {
+    protected void mostrarBaralla_borrar() {
         for (int i = 0; i < BarallaCartas.length; i++) {
             System.out.println(BarallaCartas[i].toString());
         }
@@ -69,7 +50,7 @@ abstract class Baralla {
      */
     protected String siguienteCarta() {
         String c = null;
-        if (this.contador == MAX_CARTAS) {
+        if (this.contador == MAX_BARALLA) {
             c = "Non quedan cartas";
         } else {
             c = BarallaCartas[contador++].toString();
@@ -87,7 +68,7 @@ abstract class Baralla {
      * @return Devolve un número enteiro.
      */
     protected int cartasDisponibles() {
-        return MAX_CARTAS - contador;
+        return MAX_BARALLA - contador;
     }
 
     /**
