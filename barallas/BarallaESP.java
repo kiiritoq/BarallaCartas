@@ -1,5 +1,6 @@
+package barallas;
 
-public class BarallaESP extends Baralla {
+public class BarallaESP extends Baralla implements Utilities {
     private static final int BAR_LONGA = 48;
     private static final int BAR_NORMAL = 40;
     private static final String PalosESP[] = { "OUROS", "BASTOS", "COPAS", "ESPADAS" };
@@ -22,7 +23,7 @@ public class BarallaESP extends Baralla {
      * Procede a sumar +3 ao número seguinte, dandolle os valores reais que teñen as
      * cartas. O 10,11 e 12 son a Sota, Cabalo e Rei.
      */
-
+    @Override
     public void crearBaralla() {
         for (int a = 0; a < PalosESP.length; a++) {
             if (BarallaCartas.length == 40) {
@@ -41,6 +42,7 @@ public class BarallaESP extends Baralla {
         }
     }
 
+    @Override
     public void mostrarBaralla() {
         for (int i = 0; i < BarallaCartas.length; i++) {
             if (BarallaCartas[i].getNum() == 1) {
